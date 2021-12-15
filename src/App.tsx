@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
 import { Spinner } from './app/components';
-import { useFetchBreedsQuery } from './features/dogs/dogs-api-slice';
+import { useFetchBreedsQuery } from './app/queries';
 import './App.css';
 
 const App: React.FC = React.memo(function App() {
