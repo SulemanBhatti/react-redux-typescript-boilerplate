@@ -1,0 +1,22 @@
+{
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended",
+        "prettier",
+        "plugin:react/recommended"
+    ],
+    "plugins": ["prettier"],
+    "rules": {
+        "prettier/prettier": "error",
+        "no-use-before-define": "off",
+        "@typescript-eslint/no-use-before-define": "off",
+        "no-unused-vars": "warn",
+        "prefer-const": "warn",
+        "no-console": 1,
+        "max-lines": 1,
+        "func-names": "off",
+        "react/display-name": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off"
+    }
+}

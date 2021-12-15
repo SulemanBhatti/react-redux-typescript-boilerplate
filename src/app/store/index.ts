@@ -1,9 +1,14 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import counterReducer from '../../features/counter/counterSlice';
+import { dogsApiSlice } from '../../features/dogs/dogs-api-slice';
 
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
+    [dogsApiSlice.reducerPath]: dogsApiSlice.reducer,
+  },
+  middleware: (getDefaultMiddleware) => {
+    return getDefaultMiddleware().concat(dogsApiSlice.middleware);
   },
 });
 

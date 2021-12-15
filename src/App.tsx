@@ -1,12 +1,39 @@
 import React from 'react';
 import logo from './logo.svg';
 import { Counter } from './features/counter/Counter';
+import { Spinner } from './app/components';
+import { useFetchBreedsQuery } from './features/dogs/dogs-api-slice';
 import './App.css';
 
-function App() {
+const App: React.FC = React.memo(function App() {
+  const { data = [], isLoading } = useFetchBreedsQuery();
+
   return (
     <div className="App">
       <header className="App-header">
+        <Spinner visible={isLoading} />
+
+        <div>
+          <p>Number of dogs fetched: {data.length}</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Picture</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.map((breed) => (
+                <tr key={breed.id}>
+                  <td>{breed.name}</td>
+                  <td>
+                    <img src={breed.image.url} alt={breed.name} height={250} />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
         <p>
@@ -53,6 +80,6 @@ function App() {
       </header>
     </div>
   );
-}
+});
 
 export default App;
