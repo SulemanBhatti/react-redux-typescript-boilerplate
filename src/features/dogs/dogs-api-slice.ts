@@ -1,5 +1,5 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { DOGS_API_KEY } from '../../app/constants';
+import { createApi } from '@reduxjs/toolkit/query/react';
+import { dogService } from '../../app/services/dogService';
 interface Breed {
   id: string;
   name: string;
@@ -10,13 +10,7 @@ interface Breed {
 
 export const dogsApiSlice = createApi({
   reducerPath: 'api',
-  baseQuery: fetchBaseQuery({
-    baseUrl: 'https://api.thedogapi.com/v1',
-    prepareHeaders(headers) {
-      headers.set('x-api-key', DOGS_API_KEY);
-      return headers;
-    },
-  }),
+  baseQuery: dogService,
   endpoints(builder) {
     return {
       fetchBreeds: builder.query<Breed[], number | void>({
