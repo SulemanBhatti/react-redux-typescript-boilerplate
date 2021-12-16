@@ -1,6 +1,6 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import counterReducer from '../../features/counter/counterSlice';
-import { dogsApiSlice } from '../../features/dogs/dogs-api-slice';
+import { dogsApiSlice } from '../../features/dogs';
 
 export const store = configureStore({
   reducer: {

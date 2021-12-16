@@ -1,3 +1,3 @@
-import { dogsApiSlice } from '../../features/dogs/dogs-api-slice';
+import { dogsApiSlice } from '../../features/dogs';
 
 export const { useFetchBreedsQuery } = dogsApiSlice;
